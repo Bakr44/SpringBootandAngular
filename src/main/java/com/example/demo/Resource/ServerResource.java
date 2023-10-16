@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.concurrent.TimeUnit;
 
 import static java.time.LocalDateTime.now;
 import static java.util.Map.*;
@@ -28,7 +29,8 @@ public class ServerResource {
     private final ServerServiceImplementation serverServiceImplementation;
 
     @GetMapping("/List")
-    public ResponseEntity<Response> getServer(){
+    public ResponseEntity<Response> getServer() throws InterruptedException {
+        TimeUnit.SECONDS.sleep(3);
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(now())

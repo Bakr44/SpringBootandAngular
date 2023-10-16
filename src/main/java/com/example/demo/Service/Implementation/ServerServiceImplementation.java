@@ -1,19 +1,16 @@
 package com.example.demo.Service.Implementation;
 
-import com.example.demo.Enumeration.Status;
 import com.example.demo.Model.Server;
 import com.example.demo.Repository.ServerRepo;
 import com.example.demo.Service.ServerService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.io.IOException;
 import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.Collection;
 import java.util.Random;
 
@@ -39,7 +36,7 @@ public class ServerServiceImplementation implements ServerService {
     @Override
     public Server ping(String ipAddress) throws IOException {
         log.info("Pinging server IP: {}",ipAddress);
-        Server server=serverRepo.findByIdAddress(ipAddress);
+        Server server=serverRepo.findByIpAddress(ipAddress);
         InetAddress address=InetAddress.getByName(ipAddress);
         server.getStatus(address.isReachable(10000)?SERVER_UP:SERVER_DOWN);
         serverRepo.save(server);
