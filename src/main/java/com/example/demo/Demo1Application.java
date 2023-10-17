@@ -24,8 +24,8 @@ public class Demo1Application {
 	CommandLineRunner run(ServerRepo serverRepo){
 		return args -> {
 			serverRepo.save(new Server(null,"192.122.2.160","Linux","16 GB","PC","http://localhost:8080/api/v1/server/image/server1.png", Status.SERVER_UP));
-			serverRepo.save(new Server(null,"163.12.2.10","Linux","128 GB","PC","http://localhost:8080/api/v1/server/image/server2.png", Status.SERVER_UP));
-			serverRepo.save(new Server(null,"102.112.24.60","Linux","28 GB","PC","http://localhost:8080/api/v1/server/image/server3.png", Status.SERVER_DOWN));
+			serverRepo.save(new Server(null,"192.168.1.1","Linux","128 GB","PC","http://localhost:8080/api/v1/server/image/server2.png", Status.SERVER_UP));
+			serverRepo.save(new Server(null,"192.168.10.14","Linux","28 GB","PC","http://localhost:8080/api/v1/server/image/server3.png", Status.SERVER_UP));
 			serverRepo.save(new Server(null,"112.222.20.190","Linux","256 GB","PC","http://localhost:8080/api/v1/server/image/server4.png", Status.SERVER_DOWN));
 
 		};

@@ -34,6 +34,5 @@ public class Server {
     private Status status;
 
 
-    public void getStatus(Status status) {
-    }
+
 }
